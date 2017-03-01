@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -23,6 +19,8 @@ public class Controller {
     @FXML
     Button buttonDictionary;
     @FXML
+    Button buttonQuiz;
+    @FXML
     Button buttonBackDW;
     @FXML
     Button buttonShowDW;
@@ -32,6 +30,12 @@ public class Controller {
     TableColumn<Map.Entry<String, String>, String> wordcolumn;
     @FXML
     TableColumn<Map.Entry<String, String>, String> translationcolumn;
+    @FXML
+    Label labelWord;
+    @FXML
+    TextField textFieldTranslation;
+    @FXML
+    Button buttonCheck;
 
 
     public void buttonDictionaryOnClickAction() throws IOException {
@@ -40,6 +44,13 @@ public class Controller {
 
     public void buttonBackOnClickAction() throws IOException {
         changeSceneForMainWindow();
+    }
+    public void buttonQuizOnClickAction() throws IOException {
+        changeSceneForQuizWindow();
+    }
+
+    public void buttonCheckOnClickAction() {
+        System.out.println(Main.quiz.checkIfCorrectTranslation(textFieldTranslation.getText()));
     }
 
     public void changeSceneForMainWindow() throws IOException {
@@ -50,6 +61,18 @@ public class Controller {
     public void changeSceneForDictionaryWindow() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/windows/dictionaryWindow.fxml"));
         Main.window.setScene(new Scene(root));
+    }
+
+    public void changeSceneForQuizWindow() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
+        Parent root = loader.load();
+        setWordLabel(loader);
+        Main.window.setScene(new Scene(root));
+    }
+
+    public void setWordLabel(FXMLLoader loader) {
+        Controller controller = (Controller)loader.getController();
+        controller.labelWord.setText(Main.quiz.takeRandomWordFromList());
     }
 
 

@@ -25,8 +25,14 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-
-
+        try {
+            dataBase.readDictionayFromFile();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        quiz.getAllElementsFromMapIntoList();
+        System.out.println(quiz.takeRandomWordFromList());
+        quiz.checkIfCorrectTranslation("dziękuję");
 
         launch(args);
     }

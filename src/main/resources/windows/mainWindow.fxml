@@ -15,7 +15,7 @@
         <VBox alignment="TOP_CENTER" layoutX="315.0" layoutY="234.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="121.0" prefWidth="171.0" spacing="20.0">
             <children>
                 <Button fx:id="buttonDictionary" mnemonicParsing="false" onAction="#buttonDictionaryOnClickAction" prefHeight="30.0" prefWidth="150.0" text="Słownik" />
-                <Button fx:id="buttonTest" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Kartkówka" />
+                <Button fx:id="buttonQuiz" mnemonicParsing="false" onAction="#buttonQuizOnClickAction" prefHeight="30.0" prefWidth="150.0" text="Kartkówka" />
                 <Button fx:id="buttonReadDictionary" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Wczytaj słownik" />
             </children>
         </VBox>
