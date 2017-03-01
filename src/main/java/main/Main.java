@@ -8,14 +8,18 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     static Stage window;
+    static DataBase dataBase = new DataBase();
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        dataBase.readDictionayFromFile();
         window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/windows/mainWindow.fxml"));
         window.setTitle("Nauka słówek!");
         window.setScene(new Scene(root));
         window.show();
+
     }
 
 

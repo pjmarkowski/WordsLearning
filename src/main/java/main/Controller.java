@@ -1,12 +1,22 @@
 package main;
 
+import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class Controller {
 
@@ -14,9 +24,18 @@ public class Controller {
     Button buttonDictionary;
     @FXML
     Button buttonBackDW;
+    @FXML
+    Button buttonShowDW;
+    @FXML
+    TableView tableView;
+    @FXML
+    TableColumn<Map.Entry<String, String>, String> wordcolumn;
+    @FXML
+    TableColumn<Map.Entry<String, String>, String> translationcolumn;
+
 
     public void buttonDictionaryOnClickAction() throws IOException {
-     changeSceneForDictionaryWindow();
+        changeSceneForDictionaryWindow();
     }
 
     public void buttonBackOnClickAction() throws IOException {
@@ -31,5 +50,28 @@ public class Controller {
     public void changeSceneForDictionaryWindow() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/windows/dictionaryWindow.fxml"));
         Main.window.setScene(new Scene(root));
+    }
+
+
+    public void setTableView() {
+        wordcolumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, String>, String>, ObservableValue<String>>() {
+
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<String, String>, String> p) {
+                // this callback returns property for just one cell, you can't use a loop here
+                // for first column we use key
+                return new SimpleStringProperty(p.getValue().getKey());
+            }
+        });
+        translationcolumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Map.Entry<String, String>, String>, ObservableValue<String>>() {
+
+            @Override
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Map.Entry<String, String>, String> p) {
+                // for second column we use value
+                return new SimpleStringProperty(p.getValue().getValue());
+            }
+        });
+        ObservableList<Map.Entry<String, String>> items = FXCollections.observableArrayList(Main.dataBase.getDictionary().entrySet());
+        tableView.setItems(items);
     }
 }
