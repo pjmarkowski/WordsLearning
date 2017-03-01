@@ -28,4 +28,18 @@ public class DataBase {
         }
         file.close();
     }
+
+    public void addWordIntoDictionary (String word, String translation) {
+        dictionary.put(word,translation);
+    }
+
+    public void removeWordFromDictionaryByValue (String word) {
+        String foundedKey="";
+        for (Map.Entry<String, String> entry : dictionary.entrySet()) {
+            if (entry.getValue().equals(word)) {
+                foundedKey = (entry.getKey());
+            }
+        }
+        dictionary.remove(foundedKey);
+    }
 }
