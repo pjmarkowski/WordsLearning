@@ -42,4 +42,10 @@ public class DataBase {
         }
         dictionary.remove(foundedKey);
     }
+
+    public void printAllDictionary() {
+        for (Map.Entry<String, String> entry : dictionary.entrySet()) {
+            System.out.println(entry.getKey()+"--"+entry.getValue());
+        }
+    }
 }
