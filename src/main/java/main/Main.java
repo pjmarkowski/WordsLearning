@@ -7,13 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    static Stage window;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        window = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/windows/mainWindow.fxml"));
-        primaryStage.setTitle("Nauka słówek!");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        window.setTitle("Nauka słówek!");
+        window.setScene(new Scene(root));
+        window.show();
     }
 
 
