@@ -7,13 +7,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    static Stage window;
+    static DataBase dataBase = new DataBase();
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        dataBase.readDictionayFromFile();
+        window = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/windows/mainWindow.fxml"));
+        window.setTitle("Nauka słówek!");
+        window.setScene(new Scene(root));
+        window.show();
+
     }
 
 

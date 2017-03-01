@@ -48,4 +48,8 @@ public class DataBase {
             System.out.println(entry.getKey()+"--"+entry.getValue());
         }
     }
+
+    public Map<String, String> getDictionary() {
+        return dictionary;
+    }
 }
