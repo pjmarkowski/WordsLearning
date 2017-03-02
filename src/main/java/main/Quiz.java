@@ -9,6 +9,9 @@ public class Quiz {
     private Map<String, String> dictionary = new HashMap<>();
     private List<String> listOfKey = new ArrayList<>();
     private String currentRandomWord;
+    private int possiblePoints = 0;
+    private int userPoints = 0;
+    String correctAnswer;
     public Quiz() {
         this.dictionary = Main.dataBase.getDictionary();
     }
@@ -17,6 +20,7 @@ public class Quiz {
         Random rn = new Random();
         int randomNumber = rn.nextInt((listOfKey.size()-1)+1)+0;
         currentRandomWord = listOfKey.get(randomNumber);
+        correctAnswer = dictionary.get(currentRandomWord);
         return currentRandomWord;
     }
 
@@ -27,13 +31,13 @@ public class Quiz {
         }
     }
 
-    public String checkIfCorrectTranslation(String translation) {
-        String correctAnswer = dictionary.get(currentRandomWord);
+    public int checkIfCorrectTranslation(String translation) {
+
         if(correctAnswer.equals(translation)) {
-            return "Poprawna odpowiedź!";
+            return 1;
         }
         else {
-            return "Niepoprawna odpowiedz, powinno byc: " + correctAnswer;
+            return 0;
         }
     }
 
@@ -43,4 +47,19 @@ public class Quiz {
         }
     }
 
+    public int getPossiblePoints() {
+        return possiblePoints;
+    }
+
+    public int getUserPoints() {
+        return userPoints;
+    }
+
+    public void increasePossiblePoints() {
+        possiblePoints ++;
+    }
+
+    public void increaseUserPoints() {
+        userPoints ++;
+    }
 }

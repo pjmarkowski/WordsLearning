@@ -36,6 +36,13 @@ public class Controller {
     TextField textFieldTranslation;
     @FXML
     Button buttonCheck;
+    @FXML
+    Button buttonNext;
+    @FXML
+    Label labelResult;
+
+
+    FXMLLoader loaderQuizWindow = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
 
 
     public void buttonDictionaryOnClickAction() throws IOException {
@@ -50,7 +57,14 @@ public class Controller {
     }
 
     public void buttonCheckOnClickAction() {
-        System.out.println(Main.quiz.checkIfCorrectTranslation(textFieldTranslation.getText()));
+        printResultInformation(Main.quiz.checkIfCorrectTranslation(textFieldTranslation.getText()));
+    }
+
+    public void buttonNextOnClickAction() {
+        setWordLabelFromThisWindow();
+        clearResultLabel();
+        clearTextFieldTranslation();
+        Main.quiz.increasePossiblePoints();
     }
 
     public void changeSceneForMainWindow() throws IOException {
@@ -64,16 +78,38 @@ public class Controller {
     }
 
     public void changeSceneForQuizWindow() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
-        Parent root = loader.load();
-        setWordLabel(loader);
+        Parent root = loaderQuizWindow.load();
+        setWordLabelFromPreviousWindow();
         Main.window.setScene(new Scene(root));
     }
 
-    public void setWordLabel(FXMLLoader loader) {
-        Controller controller = (Controller)loader.getController();
+    public void setWordLabelFromPreviousWindow() {
+        Controller controller = (Controller)loaderQuizWindow.getController();
         controller.labelWord.setText(Main.quiz.takeRandomWordFromList());
     }
+
+    public void setWordLabelFromThisWindow() {
+        labelWord.setText(Main.quiz.takeRandomWordFromList());
+    }
+
+    public void clearTextFieldTranslation() {
+        textFieldTranslation.clear();
+    }
+
+    public void clearResultLabel() {
+        labelResult.setText("");
+    }
+
+    public void printResultInformation(int result) {
+        if(result == 1) {
+            labelResult.setText("Poprawna odpowiedź!");
+        }
+        else {
+            labelResult.setText("Niepoprawna odpowiedz! \nPoprawna odpowiedź to: " + Main.quiz.correctAnswer);
+        }
+    }
+
+
 
 
     public void setTableView() {
