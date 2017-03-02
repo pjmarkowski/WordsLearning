@@ -42,6 +42,36 @@ public class Controller {
     Label labelResult;
     @FXML
     Label labelScore;
+    @FXML
+    Button buttonA1;
+    @FXML
+    Button buttonA2;
+    @FXML
+    Button buttonC;
+    @FXML
+    Button buttonE1;
+    @FXML
+    Button buttonE2;
+    @FXML
+    Button buttonE3;
+    @FXML
+    Button buttonE4;
+    @FXML
+    Button buttonI1;
+    @FXML
+    Button buttonI2;
+    @FXML
+    Button buttonO;
+    @FXML
+    Button buttonU1;
+    @FXML
+    Button buttonU2;
+    @FXML
+    Button buttonY;
+    @FXML
+    Button buttonOE;
+    @FXML
+    Button buttonAE;
 
 
     FXMLLoader loaderQuizWindow = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
@@ -114,6 +144,69 @@ public class Controller {
         }
     }
 
+    public void printFrenchA1IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "à");
+    }
+
+    public void printFrenchA2IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "â");
+    }
+
+    public void printFrenchCIntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ç");
+    }
+
+    public void printFrenchE1IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "é");
+    }
+
+    public void printFrenchE2IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "è");
+    }
+
+    public void printFrenchE3IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ê");
+    }
+
+    public void printFrenchE4IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ë");
+    }
+
+    public void printFrenchI1IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "î");
+    }
+
+    public void printFrenchI2IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ï");
+    }
+
+    public void printFrenchOIntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ô");
+    }
+
+    public void printFrenchU1IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "û");
+    }
+
+    public void printFrenchU2IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ù");
+    }
+
+    public void printFrenchU3IntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ü");
+    }
+
+    public void printFrenchYIntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "ÿ");
+    }
+
+    public void printFrenchOEIntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "œ");
+    }
+
+    public void printFrenchAEIntoTextField () {
+        textFieldTranslation.setText(textFieldTranslation.getText() + "æ");
+    }
 
 
 

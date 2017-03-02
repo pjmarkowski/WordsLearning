@@ -14,20 +14,133 @@
     <children>
         <Label layoutX="329.0" layoutY="15.0" text="Kartkówka" textAlignment="CENTER">
             <font>
-                <Font size="23.0" />
+                <Font size="30.0" />
             </font>
         </Label>
-      <Button fx:id="buttonBackDW" layoutX="664.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonBackOnClickAction" text="Powrót" />
+      <Button fx:id="buttonBackDW" layoutX="664.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonBackOnClickAction" text="Powrót">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
       <HBox layoutX="226.0" layoutY="234.0" prefHeight="34.0" prefWidth="312.0">
          <children>
-            <Label fx:id="labelWord" prefWidth="200.0" />
-            <TextField fx:id="textFieldTranslation" onAction="#buttonCheckOnClickAction" prefHeight="31.0" prefWidth="164.0" />
+            <Label fx:id="labelWord" prefWidth="200.0">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <TextField fx:id="textFieldTranslation" onAction="#buttonCheckOnClickAction" prefHeight="40.0" prefWidth="138.0">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
          </children>
       </HBox>
-      <Button fx:id="buttonCheck" layoutX="562.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź" />
+      <Button fx:id="buttonCheck" layoutX="562.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
       <Label fx:id="labelResult" layoutX="217.0" layoutY="290.0" prefHeight="61.0" prefWidth="518.0" />
-      <Button fx:id="buttonNext" layoutX="656.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne" />
-      <Label layoutX="24.0" layoutY="78.0" text="Wynik:" />
-      <Label fx:id="labelScore" layoutX="77.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0" />
+      <Button fx:id="buttonNext" layoutX="656.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label layoutX="24.0" layoutY="78.0" text="Wynik:">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="labelScore" layoutX="77.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <VBox layoutX="217.0" layoutY="384.0" prefHeight="67.0" prefWidth="227.0" spacing="5.0">
+         <children>
+            <HBox prefHeight="37.0" prefWidth="246.0" spacing="5.0">
+               <children>
+                  <Button fx:id="buttonA1" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchA1IntoTextField" text="à" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonA2" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchA2IntoTextField" text="â" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonC" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchCIntoTextField" text="ç" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonE1" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchE1IntoTextField" text="é" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonE2" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchE2IntoTextField" text="è" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonE3" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchE3IntoTextField" text="ê" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonE4" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchE4IntoTextField" text="ë" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonI1" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchI1IntoTextField" text="î" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="28.0" prefWidth="246.0" spacing="5.0">
+               <children>
+                  <Button fx:id="buttonI2" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchI2IntoTextField" text="ï" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonO" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchOIntoTextField" text="ô" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonU1" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchU1IntoTextField" text="û" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonU2" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchU2IntoTextField" text="ù" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonU3" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchU3IntoTextField" text="ü" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonY" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchYIntoTextField" text="ÿ" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonOE" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchOEIntoTextField" text="œ" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="buttonAE" alignment="CENTER" contentDisplay="CENTER" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#printFrenchAEIntoTextField" text="æ" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
     </children>
 </Pane>
