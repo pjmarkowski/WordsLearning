@@ -27,5 +27,7 @@
       <Button fx:id="buttonCheck" layoutX="562.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź" />
       <Label fx:id="labelResult" layoutX="217.0" layoutY="290.0" prefHeight="61.0" prefWidth="518.0" />
       <Button fx:id="buttonNext" layoutX="656.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne" />
+      <Label layoutX="24.0" layoutY="78.0" text="Wynik:" />
+      <Label fx:id="labelScore" layoutX="77.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0" />
     </children>
 </Pane>

@@ -40,6 +40,8 @@ public class Controller {
     Button buttonNext;
     @FXML
     Label labelResult;
+    @FXML
+    Label labelScore;
 
 
     FXMLLoader loaderQuizWindow = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
@@ -58,13 +60,15 @@ public class Controller {
 
     public void buttonCheckOnClickAction() {
         printResultInformation(Main.quiz.checkIfCorrectTranslation(textFieldTranslation.getText()));
+        Main.quiz.increasePossiblePoints();
+        labelScore.setText(Main.quiz.getUserPoints() + " / " + Main.quiz.getPossiblePoints());
     }
 
     public void buttonNextOnClickAction() {
         setWordLabelFromThisWindow();
         clearResultLabel();
         clearTextFieldTranslation();
-        Main.quiz.increasePossiblePoints();
+        labelScore.setText(Main.quiz.getUserPoints() + " / " + Main.quiz.getPossiblePoints());
     }
 
     public void changeSceneForMainWindow() throws IOException {
@@ -103,6 +107,7 @@ public class Controller {
     public void printResultInformation(int result) {
         if(result == 1) {
             labelResult.setText("Poprawna odpowiedź!");
+            Main.quiz.increaseUserPoints();
         }
         else {
             labelResult.setText("Niepoprawna odpowiedz! \nPoprawna odpowiedź to: " + Main.quiz.correctAnswer);
