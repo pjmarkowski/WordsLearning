@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+    <children>
+        <Label layoutX="329.0" layoutY="15.0" text="Kartkówka" textAlignment="CENTER">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Label>
+      <Button fx:id="buttonBackDW" layoutX="664.0" layoutY="16.0" mnemonicParsing="false" onAction="#buttonBackOnClickAction" text="Powrót" />
+      <HBox layoutX="226.0" layoutY="234.0" prefHeight="34.0" prefWidth="312.0">
+         <children>
+            <Label fx:id="labelWord" prefWidth="200.0" />
+            <TextField fx:id="textFieldTranslation" onAction="#buttonCheckOnClickAction" prefHeight="31.0" prefWidth="164.0" />
+         </children>
+      </HBox>
+      <Button fx:id="buttonCheck" layoutX="562.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź" />
+      <Label fx:id="labelResult" layoutX="217.0" layoutY="290.0" prefHeight="61.0" prefWidth="518.0" />
+      <Button fx:id="buttonNext" layoutX="656.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne" />
+      <Label layoutX="24.0" layoutY="78.0" text="Wynik:" />
+      <Label fx:id="labelScore" layoutX="77.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0" />
+    </children>
+</Pane>

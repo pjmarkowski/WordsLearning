@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -23,6 +19,8 @@ public class Controller {
     @FXML
     Button buttonDictionary;
     @FXML
+    Button buttonQuiz;
+    @FXML
     Button buttonBackDW;
     @FXML
     Button buttonShowDW;
@@ -32,6 +30,21 @@ public class Controller {
     TableColumn<Map.Entry<String, String>, String> wordcolumn;
     @FXML
     TableColumn<Map.Entry<String, String>, String> translationcolumn;
+    @FXML
+    Label labelWord;
+    @FXML
+    TextField textFieldTranslation;
+    @FXML
+    Button buttonCheck;
+    @FXML
+    Button buttonNext;
+    @FXML
+    Label labelResult;
+    @FXML
+    Label labelScore;
+
+
+    FXMLLoader loaderQuizWindow = new FXMLLoader(getClass().getResource("/windows/quizWindow.fxml"));
 
 
     public void buttonDictionaryOnClickAction() throws IOException {
@@ -40,6 +53,22 @@ public class Controller {
 
     public void buttonBackOnClickAction() throws IOException {
         changeSceneForMainWindow();
+    }
+    public void buttonQuizOnClickAction() throws IOException {
+        changeSceneForQuizWindow();
+    }
+
+    public void buttonCheckOnClickAction() {
+        printResultInformation(Main.quiz.checkIfCorrectTranslation(textFieldTranslation.getText()));
+        Main.quiz.increasePossiblePoints();
+        labelScore.setText(Main.quiz.getUserPoints() + " / " + Main.quiz.getPossiblePoints());
+    }
+
+    public void buttonNextOnClickAction() {
+        setWordLabelFromThisWindow();
+        clearResultLabel();
+        clearTextFieldTranslation();
+        labelScore.setText(Main.quiz.getUserPoints() + " / " + Main.quiz.getPossiblePoints());
     }
 
     public void changeSceneForMainWindow() throws IOException {
@@ -51,6 +80,41 @@ public class Controller {
         Parent root = FXMLLoader.load(getClass().getResource("/windows/dictionaryWindow.fxml"));
         Main.window.setScene(new Scene(root));
     }
+
+    public void changeSceneForQuizWindow() throws IOException {
+        Parent root = loaderQuizWindow.load();
+        setWordLabelFromPreviousWindow();
+        Main.window.setScene(new Scene(root));
+    }
+
+    public void setWordLabelFromPreviousWindow() {
+        Controller controller = (Controller)loaderQuizWindow.getController();
+        controller.labelWord.setText(Main.quiz.takeRandomWordFromList());
+    }
+
+    public void setWordLabelFromThisWindow() {
+        labelWord.setText(Main.quiz.takeRandomWordFromList());
+    }
+
+    public void clearTextFieldTranslation() {
+        textFieldTranslation.clear();
+    }
+
+    public void clearResultLabel() {
+        labelResult.setText("");
+    }
+
+    public void printResultInformation(int result) {
+        if(result == 1) {
+            labelResult.setText("Poprawna odpowiedź!");
+            Main.quiz.increaseUserPoints();
+        }
+        else {
+            labelResult.setText("Niepoprawna odpowiedz! \nPoprawna odpowiedź to: " + Main.quiz.correctAnswer);
+        }
+    }
+
+
 
 
     public void setTableView() {
