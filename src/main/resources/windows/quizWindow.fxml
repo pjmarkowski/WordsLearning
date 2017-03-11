@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/styleSheetDark.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
     <children>
         <Label layoutX="329.0" layoutY="15.0" text="Kartkówka" textAlignment="CENTER">
             <font>
@@ -21,24 +21,24 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <HBox layoutX="226.0" layoutY="234.0" prefHeight="34.0" prefWidth="312.0">
+      <HBox layoutX="217.0" layoutY="236.0" prefHeight="39.0" prefWidth="435.0">
          <children>
             <Label fx:id="labelWord" prefWidth="200.0">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField fx:id="textFieldTranslation" onAction="#buttonCheckOnClickAction" prefHeight="40.0" prefWidth="138.0">
+            <TextField fx:id="textFieldTranslation" onAction="#buttonCheckOnClickAction" prefHeight="39.0" prefWidth="230.0">
                <font>
                   <Font size="18.0" />
                </font></TextField>
          </children>
       </HBox>
-      <Button fx:id="buttonCheck" layoutX="562.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź">
+      <Button fx:id="buttonCheck" layoutX="658.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonCheckOnClickAction" text="Sprawdź">
          <font>
             <Font size="18.0" />
          </font></Button>
       <Label fx:id="labelResult" layoutX="217.0" layoutY="290.0" prefHeight="61.0" prefWidth="518.0" />
-      <Button fx:id="buttonNext" layoutX="656.0" layoutY="236.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne">
+      <Button fx:id="buttonNext" layoutX="654.0" layoutY="281.0" mnemonicParsing="false" onAction="#buttonNextOnClickAction" text="Następne">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -46,7 +46,7 @@
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="labelScore" layoutX="77.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0">
+      <Label fx:id="labelScore" layoutX="90.0" layoutY="78.0" prefHeight="21.0" prefWidth="105.0">
          <font>
             <Font size="18.0" />
          </font></Label>
@@ -142,5 +142,15 @@
             </HBox>
          </children>
       </VBox>
+      <Label layoutX="217.0" layoutY="207.0" text="Słowo:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="417.0" layoutY="207.0" text="Tłumaczenie:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </children>
 </Pane>
